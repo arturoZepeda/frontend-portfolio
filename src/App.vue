@@ -7,6 +7,7 @@ import Proyectos from './components/Proyectos.vue';
 import Habilidades from './components/Habilidades.vue';
 import axios from 'axios';
 
+
 const About = ref([]);
 const Experiencias = ref([]);
 const callouts = ref([]);
@@ -43,15 +44,23 @@ const temp2 = {
 for (let i = 0; i < 7; i++) {
   Skills.value.push(temp2);
 }
-
-onMounted(() => {
+onBeforeMount(() => {
   axios.get('https://apibckdn.arturozepeda.xyz/about?aboutId=654dbf1f088d780f4aea74f7')
   .then(response => {
     About.value.push(response.data);
   })
   .catch(e => console.log(e));
 });
-
+/*
+onMounted(() => {
+  axios.get('https://apibckdn.arturozepeda.xyz/about?aboutId=654dbf1f088d780f4aea74f7')
+  .then(response => {
+    About.value.push(response.data);
+  })
+  .catch(e => console.log(e));
+});*/
+console.log(About.value);
+console.log(Experiencias.value);
 </script>
 
 <template>
