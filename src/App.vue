@@ -7,19 +7,12 @@ import Proyectos from './components/Proyectos.vue';
 import Habilidades from './components/Habilidades.vue';
 import axios from 'axios';
 
-axios.get('https://apibckdn.arturozepeda.xyz/about/?aboutId=654dbf1f088d780f4aea74f7')
+axios.get('https://apibckdn.arturozepeda.xyz/about?aboutId=654dbf1f088d780f4aea74f7')
   .then(response => {
     console.log(response);
   })
   .catch(e => console.log(e));
-/*
-axiosInstance
-  .get("https://apibckdn.arturozepeda.xyz/about/?aboutId=654dbf1f088d780f4aea74f7")
-  .then(response => {
-    console.log(response);
-  })
-  .catch(e => console.log(e));
-*/
+
 const Experiencias = ref([]);
 const callouts = ref([]);
 const Skills = ref([]);
