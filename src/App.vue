@@ -8,7 +8,7 @@ import Habilidades from './components/Habilidades.vue';
 import axios from 'axios';
 
 
-const About = ref([]);
+const SobreMi = ref([]);
 const Experiencias = ref([]);
 const callouts = ref([]);
 const Skills = ref([]);
@@ -47,28 +47,21 @@ for (let i = 0; i < 7; i++) {
 onBeforeMount(() => {
   axios.get('https://apibckdn.arturozepeda.xyz/about?aboutId=654dbf1f088d780f4aea74f7')
   .then(response => {
-    About.value.push(response.data);
+    SobreMi.value.push(response.data);
   })
   .catch(e => console.log(e));
 });
-/*
-onMounted(() => {
-  axios.get('https://apibckdn.arturozepeda.xyz/about?aboutId=654dbf1f088d780f4aea74f7')
-  .then(response => {
-    About.value.push(response.data);
-  })
-  .catch(e => console.log(e));
-});*/
-console.log(About.value);
+
+console.log(SobreMi.value);
 console.log(Experiencias.value);
 </script>
 
 <template>
   <div class="fixed w-full"><NavBar /></div>
   
-  <div class="banner-personalizado bg-fixed justify-center space-y-15 shadow-lg  bg-gray-600 w-full antialiased colums-1">
+  <div class="banner-personalizado bg-fixed justify-center space-y-15 shadow-lg py-5 bg-gray-600 w-full antialiased colums-1">
     <div id="PROFILE" class="flex justify-center items-center w-full py-10">
-      <Profile class="break-after-column w-1/2 content-center" :About="About"/>
+      <Profile class="break-after-column w-1/2 content-center" :SobreMi="SobreMi[0]" />
     </div>
     <div class="flex justify-center items-center">
       <div class="bg-white  rounded-lg ficha-inicial w-1/2">

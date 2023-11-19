@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 defineProps({
-    About: {
+  SobreMi: {
         type: Object,
         required: true
     }
@@ -18,12 +18,12 @@ defineProps({
         </div>
         <div>
           <div class="w-full text-left text-white font-semibold relative pt-0 md:pt-0 align-content:center">
-            <h1 class="text-4xl font-medium text-white">Arturo Zepeda, {{ About.apellido }}<span class="font-light text-white">30</span></h1>
-            <p class="mt-8 text-white">Software Engineer | Web Developer | EDI Consultant </p>
+            <h1 class="text-4xl font-medium text-white">{{ SobreMi.nombre + " " + SobreMi.apellido }},<span class="font-light text-white">30</span></h1>
+            <p class="mt-8 text-white"> <span v-for="titulo in SobreMi.titulo">{{ titulo + " | "}}</span></p>
             <p class="mt-2 text-white">Universidad tecnologica de México</p>
             <p class="font-light text-white mt-3">CDMX, México</p>
-            <p class="font-light text-white mt-3">Correo: {{ About.correo }}</p>
-            <p class="font-light text-white mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis labore doloremque rerum, impedit alias aliquam autem explicabo voluptate sequi numquam, repellat deserunt eius optio ea. Deserunt vitae harum alias eius!</p>
+            <p class="font-light text-white mt-3">Correo: {{ SobreMi.correo }}</p>
+            <p class="font-light text-white mt-3">{{ SobreMi.descripcion }}</p>
           </div>
         </div>
       </div>
