@@ -20,8 +20,8 @@ defineProps({
           <div class="w-full text-left text-white font-semibold relative pt-0 md:pt-0 align-content:center">
             <h1 class="text-4xl font-medium text-white">{{ SobreMi.nombre + " " + SobreMi.apellido }},<span class="font-light text-white">30</span></h1>
             <p class="mt-8 text-white"> <span v-for="titulo in SobreMi.titulo">{{ titulo + " | "}}</span></p>
-            <p class="mt-2 text-white">Universidad tecnologica de México</p>
-            <p class="font-light text-white mt-3">CDMX, México</p>
+            <p class="mt-2 text-white">{{SobreMi.universidad}}</p>
+            <p class="font-light text-white mt-3">{{ SobreMi.localidad }}</p>
             <p class="font-light text-white mt-3">Correo: {{ SobreMi.correo }}</p>
             <p class="font-light text-white mt-3">{{ SobreMi.descripcion }}</p>
           </div>
