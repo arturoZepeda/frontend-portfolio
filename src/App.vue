@@ -10,7 +10,7 @@ import axios from 'axios';
 
 const SobreMi = ref([]);
 const Experiencias = ref([]);
-const callouts = ref([]);
+const Projects = ref([]);
 const Skills = ref([]);
 const temp = {
   puesto: 'Desarrollador Web',
@@ -24,36 +24,35 @@ const temp = {
 for (let i = 0; i < 4; i++) {
   Experiencias.value.push(temp);
 }
-const temp1 = {
-  name: "nombre testnombre test nombre test nombre test v nombre test",
-  href: "https://arturozepeda.xyz",
-  description: "descripcion descripcion descripcion descripcion descripcion descripcion descripcion descripcion descripcion descripcion descripcion ",
-  imageSrc: "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg",
-  imageAlt: "test logo"
-}
-for (let i = 0; i < 7; i++) {
-  callouts.value.push(temp1);
-}
 
-const temp2 = {
-    nombre: "JavaScript",
-    porcentaje: 90,
-    descripcion: "Lenguaje de programación para la web",
-    fechaDesde: "2020-01"
-}
-for (let i = 0; i < 7; i++) {
-  Skills.value.push(temp2);
-}
+
+
+
 onBeforeMount(() => {
   axios.get('https://apibckdn.arturozepeda.xyz/about?aboutId=654dbf1f088d780f4aea74f7')
   .then(response => {
     SobreMi.value.push(response.data);
   })
   .catch(e => console.log(e));
+  console.log(SobreMi.value);
+
+  axios.get('https://apibckdn.arturozepeda.xyz/skills')
+  .then(response => {
+    Skills.value.push(response.data);
+  })
+  .catch(e => console.log(e));
+  console.log(Skills.value);
+
+  axios.get('https://apibckdn.arturozepeda.xyz/projects')
+  .then(response => {
+    Skills.value.push(response.data);
+  })
+  .catch(e => console.log(e));
+  console.log(Projects.value);
 });
 
-console.log(SobreMi.value);
-console.log(Experiencias.value);
+
+
 </script>
 
 <template>
@@ -82,7 +81,7 @@ console.log(Experiencias.value);
         <div class="max-w-2xl mx-auto py-3">
           <h2 class="text-2xl font-bold text-gray-900 columns-3">Portfolio</h2>
         <div class="columns-2 ">
-          <Proyectos class="break-after-column break-inside-avoid-column content-center " v-for="callout in callouts" :callout="callout" />
+          <Proyectos class="break-after-column break-inside-avoid-column content-center " v-for="project in Projects" :project="project" />
         </div>
         </div>
       </div>
