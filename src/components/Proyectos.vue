@@ -7,8 +7,9 @@ defineProps({
 })
 </script>
 <template>
-    <div v-for="proyecto in project">
-    <div :key="proyecto.name" class="group relative">
+
+    <div :key="proyecto.name" class="group relative py-3 bg-fuchsia-500" v-for="proyecto in project">
+        <div>
         <a :href="proyecto.url">
             <span
                 class="absolute inset-0 bg-gradient-to-r from-teal-500 to-cyan-600 opacity-50 rounded-lg"></span>
@@ -25,5 +26,6 @@ defineProps({
         </h3>
         <p class="text-base font-semibold text-gray-900">{{ proyecto.descripcion }}</p>
     </div>
-</div>
+    </div>
+
 </template>

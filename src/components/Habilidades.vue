@@ -8,7 +8,7 @@ defineProps({
 </script>
 
 <template>
-    <div v-for="habilidad in skill">
+    <div v-for="habilidad in skill" class="bg-black">
         <div class="max-w-md py-2 px-8 bg-blue-300 shadow-lg rounded-lg my-20">
             <div class="flex justify-center md:justify-end ">
             </div>
@@ -18,10 +18,10 @@ defineProps({
             </div>
             <div class="flex">
                 <div class="flex justify-start mt-4 px-3">
-                    Since &nbsp; <a href="#" class="text-xl font-medium text-indigo-500 px-1" >{{ habilidad.fechaDesde.substring(0,7) }}</a>
+                    Since &nbsp; <a href="#" class="text-xl font-medium text-indigo-500">{{ habilidad.fechaDesde.substring(0,7) }}</a>
                 </div>
                 <div class="flex justify-end mt-4 px-3">
-                    Mastery &nbsp; <a href="#" class="text-xl font-medium text-indigo-500 px-1">{{ habilidad.porcentaje }}%</a>
+                    Mastery &nbsp; <a href="#" class="text-xl font-medium text-indigo-500">{{ habilidad.porcentaje }}%</a>
                 </div>
             </div>
         </div>
