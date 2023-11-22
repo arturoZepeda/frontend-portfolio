@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref,onBeforeMount, onMounted } from 'vue';
+import { ref,onBeforeMount } from 'vue';
 import Profile from './components/Profile.vue';
 import NavBar from './components/NavBar.vue';
 import Experiencia from './components/Experiencia.vue';
@@ -8,7 +8,7 @@ import Habilidades from './components/Habilidades.vue';
 import axios from 'axios';
 
 
-const SobreMi = ref([]);
+const SobreMi = ref({});
 const Experiencias = ref([]);
 const Projects = ref([]);
 const Skills = ref([]);
@@ -25,13 +25,10 @@ for (let i = 0; i < 4; i++) {
   Experiencias.value.push(temp);
 }
 
-
-
-
 onBeforeMount(() => {
   axios.get('https://apibckdn.arturozepeda.xyz/about?aboutId=654dbf1f088d780f4aea74f7')
   .then(response => {
-    SobreMi.value.push(response.data);
+    SobreMi.value=response.data;
   })
   .catch(e => console.log(e));
   console.log(SobreMi.value);
@@ -45,7 +42,7 @@ onBeforeMount(() => {
 
   axios.get('https://apibckdn.arturozepeda.xyz/projects')
   .then(response => {
-    Skills.value.push(response.data);
+    Projects.value.push(response.data);
   })
   .catch(e => console.log(e));
   console.log(Projects.value);
@@ -60,7 +57,7 @@ onBeforeMount(() => {
   
   <div class="banner-personalizado bg-fixed justify-center space-y-15 shadow-lg py-5 bg-gray-600 w-full antialiased colums-1">
     <div id="PROFILE" class="flex justify-center items-center w-full py-10">
-      <Profile class="break-after-column w-1/2 content-center" :SobreMi="SobreMi[0]" />
+      <Profile class="break-after-column w-1/2 content-center" :SobreMi="SobreMi" />
     </div>
     <div class="flex justify-center items-center">
       <div class="bg-white  rounded-lg ficha-inicial w-1/2">
