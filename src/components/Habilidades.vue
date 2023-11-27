@@ -8,9 +8,9 @@ defineProps({
 </script>
 
 <template>
-    <div v-for="habilidad in skill" class="bg-black">
-        <div class="max-w-md py-2 px-8 bg-blue-300 shadow-lg rounded-lg my-20">
-            <div class="flex justify-center md:justify-end ">
+    <div v-for="habilidad in skill" >
+        <div class="max-w-md px-8 bg-blue-300 shadow-lg rounded-lg my-3">
+            <div class="flex  ">
             </div>
             <div>
                 <h2 class="text-gray-800 text-3xl font-semibold">{{ habilidad.nombre }}</h2>
