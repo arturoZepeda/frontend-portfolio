@@ -65,7 +65,7 @@ onBeforeMount(() => {
         <div id="EXPERIENCE" class="max-w-2xl mx-auto py-3">
           <h2 class="text-2xl font-bold text-gray-900">Experience</h2>
           <ol class="relative border-l border-gray-200 dark:border-gray-700">
-            <Experiencia class="break-after-column w-1/2 content-center h-fit" v-for="Experiencia in Experiencias"
+            <Experiencia class="break-after-column w-full content-center h-fit" v-for="Experiencia in Experiencias"
               :Experiencia="Experiencia" />
           </ol>
         </div>
@@ -78,7 +78,7 @@ onBeforeMount(() => {
         <div class="max-w-2xl mx-auto py-3">
           <h2 class="text-2xl font-bold text-gray-900 columns-3">Portfolio</h2>
         <div class="columns-2 ">
-          <Proyectos class="break-after-column break-inside-avoid-column content-center " v-for="project in Projects" :project="project" />
+          <Proyectos v-for="project in Projects" :project="project" />
         </div>
         </div>
       </div>
@@ -89,7 +89,7 @@ onBeforeMount(() => {
         <div class="max-w-2xl mx-auto py-3">
           <h2 class="text-2xl font-bold text-gray-900">Technical abilities</h2>
         <div class="columns-2">
-          <Habilidades class=" break-inside-avoid-column content-center" v-for="skill in Skills" :skill="skill" />
+          <Habilidades class="break-inside-avoid-column content-center" v-for="skill in Skills" :skill="skill" />
         </div>
         </div>
       </div>

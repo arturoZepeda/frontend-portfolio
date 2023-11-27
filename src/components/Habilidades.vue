@@ -8,10 +8,8 @@ defineProps({
 </script>
 
 <template>
-    <div v-for="habilidad in skill" >
+    <div v-for="habilidad in skill" class="break-inside-avoid-column" >
         <div class="max-w-md px-8 bg-blue-300 shadow-lg rounded-lg my-3">
-            <div class="flex  ">
-            </div>
             <div>
                 <h2 class="text-gray-800 text-3xl font-semibold">{{ habilidad.nombre }}</h2>
                 <p class="mt-2 text-gray-600">{{ habilidad.descripcion }}</p>
