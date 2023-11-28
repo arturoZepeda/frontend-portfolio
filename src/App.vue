@@ -12,7 +12,7 @@ const SobreMi = ref({});
 const Experiencias = ref([]);
 const Projects = ref([]);
 const Skills = ref([]);
-const temp = {
+/* const temp = {
   puesto: 'Desarrollador Web',
   empresa: 'Empresa',
   ubicacion: 'Remoto',
@@ -24,29 +24,29 @@ const temp = {
 for (let i = 0; i < 4; i++) {
   Experiencias.value.push(temp);
 }
-
+ */
 onBeforeMount(() => {
   axios.get('https://apibckdn.arturozepeda.xyz/about?aboutId=654dbf1f088d780f4aea74f7')
   .then(response => {
     SobreMi.value=response.data;
   })
   .catch(e => console.log(e));
-  console.log(SobreMi.value);
-
   axios.get('https://apibckdn.arturozepeda.xyz/skills')
   .then(response => {
-    Skills.value.push(response.data);
+    //Skills.value.push(response.data);
+    Skills.value=response.data;
   })
   .catch(e => console.log(e));
-  console.log(Skills.value);
-
   axios.get('https://apibckdn.arturozepeda.xyz/projects')
   .then(response => {
-    Projects.value.push(response.data);
+    Projects.value=response.data;
   })
   .catch(e => console.log(e));
-  console.log(Projects.value);
 });
+  axios.get('https://apibckdn.arturozepeda.xyz/experience')
+  .then(response => {
+    Experiencias.value=response.data;
+  })
 
 
 
