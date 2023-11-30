@@ -47,49 +47,50 @@ onBeforeMount(() => {
 </script>
 
 <template>
-  <div class="fixed w-full">
-    <NavBar />
-  </div>
-
-  <div
-    class="banner-personalizado bg-fixed justify-center space-y-15 shadow-lg py-5 bg-gray-600 w-full antialiased colums-1">
-    <div id="PROFILE" class="flex justify-center items-center w-full py-10">
-      <Profile class="break-after-column w-1/2 content-center" :SobreMi="SobreMi" />
-    </div>
-    <div class="flex justify-center items-center">
-      <div class="bg-white  rounded-lg ficha-inicial w-1/2">
-        <!-- This is an example component -->
-        <div id="EXPERIENCE" class="max-w-2xl mx-auto py-3">
-          <h2 class="text-2xl font-bold text-gray-900">Experience</h2>
-          <Spinnet v-if="CargandoExperienfias" class="flex justify-center items-center"/>
-          <ol class="relative border-l border-gray-200 dark:border-gray-700" v-else>
-            <Experiencia class="break-after-column w-full content-center h-fit" v-for="Experiencia in Experiencias"
-              :Experiencia="Experiencia" />
-          </ol>
-        </div>
+  <!--<div class="fixed w-full">
+    <NavBar class="relative"/>
+  </div>-->
+  <div>
+    <div
+      class="banner-personalizado bg-fixed justify-center space-y-15 shadow-lg py-5 bg-gray-600 w-full antialiased colums-1">
+      <div id="PROFILE" class="flex justify-center items-center w-full py-10">
+        <Profile class="break-after-column w-1/2 content-center" :SobreMi="SobreMi" />
       </div>
-    </div>
-
-    <div class="flex justify-center items-center py-10">
-      <div id="PORTFOLIO" class="bg-white  rounded-lg ficha-inicial w-1/2">
-        <!-- This is an example component -->
-        <div class="max-w-2xl mx-auto py-3">
-          <h2 class="text-2xl font-bold text-gray-900">Portfolio</h2>
-          <Spinnet v-if="CargandoProjects" class="flex justify-center items-center"/>
-          <div class="columns-2" v-else>
-            <Proyectos v-for="project in Projects" :project="project" />
+      <div class="flex justify-center items-center">
+        <div class="bg-white  rounded-lg ficha-inicial w-1/2">
+          <!-- This is an example component -->
+          <div id="EXPERIENCE" class="max-w-2xl mx-auto py-3">
+            <h2 class="text-2xl font-bold text-gray-900">Experience</h2>
+            <Spinnet v-if="CargandoExperienfias" class="flex justify-center items-center" />
+            <ol class="relative border-l border-gray-200 dark:border-gray-700" v-else>
+              <Experiencia class="break-after-column w-full content-center h-fit" v-for="Experiencia in Experiencias"
+                :Experiencia="Experiencia" />
+            </ol>
           </div>
         </div>
       </div>
-    </div>
-    <div class="flex justify-center items-center">
-      <div id="ABILITIES" class="bg-white  rounded-lg ficha-inicial w-1/2">
-        <!-- This is an example component -->
-        <div class="max-w-2xl mx-auto py-3">
-          <h2 class="text-2xl font-bold text-gray-900">Technical abilities</h2>
-          <Spinnet v-if="CargandoSkills" class="flex justify-center items-center"/>
-          <div class="columns-2" v-else>
-            <Habilidades class="break-inside-avoid-column content-center" v-for="skill in Skills" :skill="skill" />
+
+      <div class="flex justify-center items-center py-10">
+        <div id="PORTFOLIO" class="bg-white  rounded-lg ficha-inicial w-1/2">
+          <!-- This is an example component -->
+          <div class="max-w-2xl mx-auto py-3">
+            <h2 class="text-2xl font-bold text-gray-900">Portfolio</h2>
+            <Spinnet v-if="CargandoProjects" class="flex justify-center items-center" />
+            <div class="columns-2" v-else>
+              <Proyectos v-for="project in Projects" :project="project" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex justify-center items-center">
+        <div id="ABILITIES" class="bg-white  rounded-lg ficha-inicial w-1/2">
+          <!-- This is an example component -->
+          <div class="max-w-2xl mx-auto py-3">
+            <h2 class="text-2xl font-bold text-gray-900">Technical abilities</h2>
+            <Spinnet v-if="CargandoSkills" class="flex justify-center items-center" />
+            <div class="columns-2" v-else>
+              <Habilidades class="break-inside-avoid-column content-center" v-for="skill in Skills" :skill="skill" />
+            </div>
           </div>
         </div>
       </div>
@@ -108,7 +109,7 @@ onBeforeMount(() => {
 .banner-personalizado {
   background-repeat: no-repat;
   background-image: url(./assets/IMG_2997.jpeg);
-  background-blend-mode: multiply;
+  background-blend-mode: normal;
   background-size: cover;
 }
 </style>

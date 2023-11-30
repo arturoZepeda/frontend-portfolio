@@ -13,7 +13,7 @@ defineProps({
                 <span class="absolute inset-0 bg-gradient-to-r  opacity-50 rounded-lg"></span>
             </a>
             <div
-                class="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-128">
+                class="h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-128">
                 <img 
                 :src="project.imagen ? project.imagen : '../assets/garfield-im-working.gif'" :alt="project.imageAlt" class="h-full w-full object-center" />
                 {{ project.imagen + ' ' + project.imageAlt }}
