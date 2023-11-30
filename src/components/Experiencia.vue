@@ -16,8 +16,8 @@ defineProps({
 
         </div>
         {{ Experiencia.Experiencia }}
-        <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500"> {{ Experiencia.fechaInicio }}
-            - {{ Experiencia.fechaFin }} </time>
+        <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500"> {{ Experiencia.fechaInicio.substring(0,7) }}
+            - {{ Experiencia.fechaFin.substring(0,7) }} </time>
         <h3 class="text-lg font-semibold text-gray-900 dark:text-black">{{ Experiencia.empresa }}</h3>
         <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">{{ Experiencia.descripcion }}</p>
         <a :href="Experiencia.link" v-if="Experiencia.link"

@@ -1,61 +1,58 @@
 <script setup lang="ts">
-import { ref,onBeforeMount } from 'vue';
+import { ref, onBeforeMount } from 'vue';
+import axios from 'axios';
 import Profile from './components/Profile.vue';
 import NavBar from './components/NavBar.vue';
 import Experiencia from './components/Experiencia.vue';
 import Proyectos from './components/Proyectos.vue';
 import Habilidades from './components/Habilidades.vue';
-import axios from 'axios';
+import Spinnet from './components/Spinnet.vue';
 
-
+const CargandoExperienfias = ref(true);
+const CargandoProjects = ref(true);
+const CargandoSkills = ref(true);
 const SobreMi = ref({});
 const Experiencias = ref([]);
 const Projects = ref([]);
 const Skills = ref([]);
-/* const temp = {
-  puesto: 'Desarrollador Web',
-  empresa: 'Empresa',
-  ubicacion: 'Remoto',
-  fechaInicio: '2015',
-  fechaFin: 'Presente',
-  descripcion: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec mi ante. Etiam odio eros, placerat eu metus id, gravida eleifend odio. Vestibulum dapibus pharetra odio, egestas ullamcorper ipsum congue ac. Maecenas viverra tortor eget convallis vestibulum. Donec pulvinar venenatis est, non sollicitudin metus laoreet sed. Fusce tincidunt felis nec neque aliquet porttitor',
-  link: 'https://arturozepeda.xyz'
-};
-for (let i = 0; i < 4; i++) {
-  Experiencias.value.push(temp);
-}
- */
+
 onBeforeMount(() => {
   axios.get('https://apibckdn.arturozepeda.xyz/about?aboutId=654dbf1f088d780f4aea74f7')
-  .then(response => {
-    SobreMi.value=response.data;
-  })
-  .catch(e => console.log(e));
+    .then(response => {
+      SobreMi.value = response.data;
+    })
+    .catch(e => console.log(e));
   axios.get('https://apibckdn.arturozepeda.xyz/skills')
-  .then(response => {
-    //Skills.value.push(response.data);
-    Skills.value=response.data;
-  })
-  .catch(e => console.log(e));
+    .then(response => {
+      Skills.value = response.data;
+      CargandoSkills.value = false;
+    })
+    .catch(e => console.log(e));
   axios.get('https://apibckdn.arturozepeda.xyz/projects')
-  .then(response => {
-    Projects.value=response.data;
-  })
-  .catch(e => console.log(e));
-});
+    .then(response => {
+      Projects.value = response.data;
+      CargandoProjects.value = false;
+    })
+    .catch(e => console.log(e));
   axios.get('https://apibckdn.arturozepeda.xyz/experience')
-  .then(response => {
-    Experiencias.value=response.data;
-  })
+    .then(response => {
+      Experiencias.value = response.data;
+      CargandoExperienfias.value = false;
+    })
+});
+
 
 
 
 </script>
 
 <template>
-  <div class="fixed w-full"><NavBar /></div>
-  
-  <div class="banner-personalizado bg-fixed justify-center space-y-15 shadow-lg py-5 bg-gray-600 w-full antialiased colums-1">
+  <div class="fixed w-full">
+    <NavBar />
+  </div>
+
+  <div
+    class="banner-personalizado bg-fixed justify-center space-y-15 shadow-lg py-5 bg-gray-600 w-full antialiased colums-1">
     <div id="PROFILE" class="flex justify-center items-center w-full py-10">
       <Profile class="break-after-column w-1/2 content-center" :SobreMi="SobreMi" />
     </div>
@@ -64,7 +61,8 @@ onBeforeMount(() => {
         <!-- This is an example component -->
         <div id="EXPERIENCE" class="max-w-2xl mx-auto py-3">
           <h2 class="text-2xl font-bold text-gray-900">Experience</h2>
-          <ol class="relative border-l border-gray-200 dark:border-gray-700">
+          <Spinnet v-if="CargandoExperienfias" class="flex justify-center items-center"/>
+          <ol class="relative border-l border-gray-200 dark:border-gray-700" v-else>
             <Experiencia class="break-after-column w-full content-center h-fit" v-for="Experiencia in Experiencias"
               :Experiencia="Experiencia" />
           </ol>
@@ -76,10 +74,11 @@ onBeforeMount(() => {
       <div id="PORTFOLIO" class="bg-white  rounded-lg ficha-inicial w-1/2">
         <!-- This is an example component -->
         <div class="max-w-2xl mx-auto py-3">
-          <h2 class="text-2xl font-bold text-gray-900 columns-3">Portfolio</h2>
-        <div class="columns-2 ">
-          <Proyectos v-for="project in Projects" :project="project" />
-        </div>
+          <h2 class="text-2xl font-bold text-gray-900">Portfolio</h2>
+          <Spinnet v-if="CargandoProjects" class="flex justify-center items-center"/>
+          <div class="columns-2" v-else>
+            <Proyectos v-for="project in Projects" :project="project" />
+          </div>
         </div>
       </div>
     </div>
@@ -88,9 +87,10 @@ onBeforeMount(() => {
         <!-- This is an example component -->
         <div class="max-w-2xl mx-auto py-3">
           <h2 class="text-2xl font-bold text-gray-900">Technical abilities</h2>
-        <div class="columns-2">
-          <Habilidades class="break-inside-avoid-column content-center" v-for="skill in Skills" :skill="skill" />
-        </div>
+          <Spinnet v-if="CargandoSkills" class="flex justify-center items-center"/>
+          <div class="columns-2" v-else>
+            <Habilidades class="break-inside-avoid-column content-center" v-for="skill in Skills" :skill="skill" />
+          </div>
         </div>
       </div>
     </div>

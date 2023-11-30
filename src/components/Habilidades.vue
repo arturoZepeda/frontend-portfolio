@@ -16,7 +16,7 @@ defineProps({
             </div>
             <div class="flex">
                 <div class="flex justify-start mt-4 px-3">
-                    Since &nbsp; <a href="#" class="text-xl font-medium text-indigo-500">{{ skill.fechaDesde }}</a>
+                    Since &nbsp; <a href="#" class="text-xl font-medium text-indigo-500">{{ skill.fechaDesde.substring(0,10) }}</a>
                 </div>
                 <div class="flex justify-end mt-4 px-3">
                     Mastery &nbsp; <a href="#" class="text-xl font-medium text-indigo-500">{{ skill.porcentaje }}%</a>
