@@ -47,9 +47,9 @@ onBeforeMount(() => {
 </script>
 
 <template>
-  <!--<div class="fixed w-full">
+  <div class="fixed w-full">
     <NavBar class="relative"/>
-  </div>-->
+  </div>
   <div>
     <div
       class="banner-personalizado bg-fixed justify-center space-y-15 shadow-lg py-5 bg-gray-600 w-full antialiased colums-1">
@@ -62,8 +62,8 @@ onBeforeMount(() => {
           <div id="EXPERIENCE" class="max-w-2xl mx-auto py-3">
             <h2 class="text-2xl font-bold text-gray-900">Experience</h2>
             <Spinnet v-if="CargandoExperienfias" class="flex justify-center items-center" />
-            <ol class="relative border-l border-gray-200 dark:border-gray-700" v-else>
-              <Experiencia class="break-after-column w-full content-center h-fit" v-for="Experiencia in Experiencias"
+            <ol class=" border-l border-gray-200 dark:border-gray-700" v-else>
+              <Experiencia class="relative  content-center " v-for="Experiencia in Experiencias"
                 :Experiencia="Experiencia" />
             </ol>
           </div>
