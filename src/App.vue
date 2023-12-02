@@ -17,7 +17,7 @@ const Projects = ref([]);
 const Skills = ref([]);
 
 onBeforeMount(() => {
-  axios.get('https://apibckdn.arturozepeda.xyz/about?aboutId=654dbf1f088d780f4aea74f7')
+  axios.get('https://apibckdn.arturozepeda.xyz/about?aboutId=656b038621008e58d0f28c84')
     .then(response => {
       SobreMi.value = response.data;
     })
